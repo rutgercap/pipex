@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   token.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/17 08:40:36 by rcappend          #+#    #+#             */
-/*   Updated: 2021/09/17 16:33:24 by rutgercappe      ###   ########.fr       */
+/*   Created: 2021/09/17 17:00:03 by rutgercappe       #+#    #+#             */
+/*   Updated: 2021/09/17 17:08:47 by rutgercappe      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "../pipex.h"
 
+void	save_token(char **dest, char *arg)
+{
+	char	*tokens;
+	int		i;
 
-// testing
-// -------------------
-#include <stdio.h>
-// -------------------
-
-#include <unistd.h>
-#include <fcntl.h>
-#include "utils/utils.h"
-
-typedef struct s_cmd {
-	char	**tokens;
-}			t_cmd;
-
-/*
-**	General
-*/
-
-void	exit_error(int error_code, char *msg);
-
-// lexing
-
-t_cmd	*lexer(int argc, char **argv);
-
-#endif
+	i = 0;
+	while (dest[i] != NULL)
+		i++;
+	if (*arg == '-')
+		arg++;
+	
+}

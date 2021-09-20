@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/17 08:40:36 by rcappend          #+#    #+#             */
-/*   Updated: 2021/09/17 16:33:24 by rutgercappe      ###   ########.fr       */
+/*   Created: 2021/09/17 08:40:25 by rcappend          #+#    #+#             */
+/*   Updated: 2021/09/17 16:51:12 by rutgercappe      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "pipex.h"
 
+void	exit_error(int error_code, char *msg)
+{
+	write(2, "Error!\n", 7);
+	write(2, msg, ft_strlen(msg));
+	write(2, "\n", 1);	
+	exit(error_code);
+}
 
-// testing
-// -------------------
-#include <stdio.h>
-// -------------------
-
-#include <unistd.h>
-#include <fcntl.h>
-#include "utils/utils.h"
-
-typedef struct s_cmd {
-	char	**tokens;
-}			t_cmd;
-
-/*
-**	General
-*/
-
-void	exit_error(int error_code, char *msg);
-
-// lexing
-
-t_cmd	*lexer(int argc, char **argv);
-
-#endif
+int main(int argc, char **argv)
+{
+	t_cmd	*cmd;
+	
+	if (argc < 5)
+		exit_error(1, "Usage: ./pipex file1 cmd1 cmd2 file2");
+	cmd = lexer(argc, argv);
+	return (0);
+}
