@@ -6,21 +6,26 @@
 #    By: rutgercappendijk <rutgercappendijk@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/17 08:39:07 by rcappend      #+#    #+#                  #
-#    Updated: 2021/09/20 10:58:32 by rcappend      ########   odam.nl          #
+#    Updated: 2021/09/21 16:22:00 by rcappend      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	pipex
 
-SRCS		=	pipex.c \
-				lexing/lexer.c \
-				lexing/tokens.c \
-				utils/ft_strncmp.c \
+SRCS		=	main.c \
+				pipex.c \
+				files.c \
+				lexing.c \
+				cmd.c \
+				utils/ft_strlen.c \
+				utils/ft_split.c \
 				utils/ft_substr.c \
+				utils/ft_calloc.c \
 				utils/ft_memcpy.c \
 				utils/ft_bzero.c \
-				utils/ft_calloc.c \
-				utils/ft_strlen.c
+				utils/ft_strncmp.c \
+				utils/ft_strjoin.c \
+				utils/ft_strdup.c
 OBJS		=	$(SRCS:.c=.o)
 CC			=	gcc
 
@@ -37,10 +42,10 @@ fclean: clean
 	rm -f $(NAME)
 
 run: all
-	./$(NAME) infile "ls -l" "wc -l" outfile
+	./$(NAME) testfiles/in "ls -l" "wc -l" testfiles/out
 
 drun: all
-	lldb $(NAME) -- infile "ls -l" "wc -l" outfile
+	lldb $(NAME) -- testfiles/in "ls -l" "wc -l" testfiles/out
 
 re: fclean all
 

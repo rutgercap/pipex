@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/17 08:40:36 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/20 08:51:14 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/21 16:20:57 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,16 @@
 #include <fcntl.h>
 #include "utils/utils.h"
 
+# define CHILD 0
+# define ERROR -1
+# define SUCCES 0
+# define WRITE 1
+# define READ 0
+
 typedef struct s_cmd {
-	char	**tokens;
-}			t_cmd;
+	char	*file;
+	char	**args;
+}	t_cmd;
 
 /*
 **	General
@@ -33,10 +40,12 @@ typedef struct s_cmd {
 
 void	exit_error(int error_code, char *msg);
 
-// lexing
+void	read_files(int *fd_in, int *fd_out, char *path_in, char *path_out);
 
-t_cmd	*lexer(int argc, char **argv);
+void	arg_lexer(t_cmd *cmd_1, t_cmd *cmd_2, char *arg_1, char *arg_2);
 
-void	save_token(char ***dest, char *arg);
+void	pipex(int fd_in, int fd_out, t_cmd cmd[2], char **envp);
+
+char	*get_full_command(t_cmd cmd, char **envp);
 
 #endif
