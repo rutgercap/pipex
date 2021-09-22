@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/21 08:46:18 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/22 14:31:30 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/22 15:09:17 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	read_outfile(char *path)
 {
 	int	fd;
 
-	fd = open(path, O_CREAT | O_RDWR | O_TRUNC, 0644);
+	fd = open(path, O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	if (fd == -1)
 		exit_error(2, "Failure reading outfile");
 	return (fd);

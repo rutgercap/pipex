@@ -6,7 +6,7 @@
 #    By: rutgercappendijk <rutgercappendijk@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/17 08:39:07 by rcappend      #+#    #+#                  #
-#    Updated: 2021/09/22 14:29:25 by rcappend      ########   odam.nl          #
+#    Updated: 2021/09/22 15:09:24 by rcappend      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ CC			=	gcc
 CFLAGS		= 	-Wall  -Wextra -Werror
 
 INFILE		=	utils/
-OUTFILE		=	testfiles/out
+OUTFILE		=	testfiles/out2
 CMD1		=	testfiles/testprogram
 CMD2		=	wc -l
 

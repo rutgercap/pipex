@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/21 08:57:21 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/22 14:31:55 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/22 15:08:56 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_cmd	init_cmd(void)
 	return (cmd);
 }
 
-int	save_cmd_file(char **dest, char *args)
+void	save_cmd_file(char **dest, char *args)
 {
 	int	i;
 
@@ -31,16 +31,14 @@ int	save_cmd_file(char **dest, char *args)
 	*dest = ft_substr(args, 0, i);
 	if (!*dest)
 		exit_error(3, "Substring failure");
-	return (i);
 }
 
 t_cmd	lex_arg(char *args)
 {
 	t_cmd	cmd;
-	int		i;
 
 	cmd = init_cmd();
-	i = save_cmd_file(&cmd.file, args);
+	save_cmd_file(&cmd.file, args);
 	cmd.args = ft_split(args, ' ');
 	if (!cmd.args)
 		exit_error(4, "Split failure");
