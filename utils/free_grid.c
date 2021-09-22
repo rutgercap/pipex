@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_tolower.c                                       :+:    :+:            */
+/*   free_grid.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/29 15:44:08 by rcappend      #+#    #+#                 */
-/*   Updated: 2020/10/29 15:44:09 by rcappend      ########   odam.nl         */
+/*   Created: 2021/09/22 13:02:00 by rcappend      #+#    #+#                 */
+/*   Updated: 2021/09/22 14:29:51 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "utils.h"
+
+void	free_grid(char **grid)
 {
-	if (c >= 'A' && c <= 'Z')
-		c -= 'A' - 'a';
-	return (c);
+	int	i;
+
+	i = 0;
+	while (grid[i])
+	{
+		free(grid[i]);
+		i++;
+	}
+	free(grid);
 }

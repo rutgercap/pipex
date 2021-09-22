@@ -6,13 +6,13 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/21 08:46:18 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/21 16:26:02 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/22 14:31:30 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static int		read_infile(char *path)
+static int	read_infile(char *path)
 {
 	int	fd;
 
@@ -22,7 +22,7 @@ static int		read_infile(char *path)
 	return (fd);
 }
 
-static int		read_outfile(char *path)
+static int	read_outfile(char *path)
 {
 	int	fd;
 

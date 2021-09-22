@@ -6,22 +6,17 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/17 08:40:36 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/21 16:20:57 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/22 14:40:09 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-
-// testing
-// -------------------
-#include <stdio.h>
-// -------------------
-
-#include <unistd.h>
-#include <fcntl.h>
-#include "utils/utils.h"
+# include <stdio.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include "utils/utils.h"
 
 # define CHILD 0
 # define ERROR -1
@@ -33,10 +28,6 @@ typedef struct s_cmd {
 	char	*file;
 	char	**args;
 }	t_cmd;
-
-/*
-**	General
-*/
 
 void	exit_error(int error_code, char *msg);
 

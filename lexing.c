@@ -6,13 +6,13 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/21 08:57:21 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/21 10:38:53 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/22 14:31:55 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-t_cmd	init_cmd()
+t_cmd	init_cmd(void)
 {
 	t_cmd	cmd;
 
@@ -21,7 +21,7 @@ t_cmd	init_cmd()
 	return (cmd);
 }
 
-int		save_cmd_file(char **dest, char *args)
+int	save_cmd_file(char **dest, char *args)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ t_cmd	lex_arg(char *args)
 
 	cmd = init_cmd();
 	i = save_cmd_file(&cmd.file, args);
-	cmd.args = ft_split(args + i, ' ');
+	cmd.args = ft_split(args, ' ');
 	if (!cmd.args)
 		exit_error(4, "Split failure");
 	return (cmd);

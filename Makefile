@@ -6,7 +6,7 @@
 #    By: rutgercappendijk <rutgercappendijk@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/17 08:39:07 by rcappend      #+#    #+#                  #
-#    Updated: 2021/09/21 16:22:00 by rcappend      ########   odam.nl          #
+#    Updated: 2021/09/22 14:29:25 by rcappend      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,17 @@ SRCS		=	main.c \
 				utils/ft_bzero.c \
 				utils/ft_strncmp.c \
 				utils/ft_strjoin.c \
-				utils/ft_strdup.c
+				utils/ft_strdup.c \
+				utils/free_grid.c
 OBJS		=	$(SRCS:.c=.o)
 CC			=	gcc
 
-CFLAGS		= 	-Wall  -Wextra -fsanitize=address -g3 # cleanup -Werror
+CFLAGS		= 	-Wall  -Wextra -Werror
+
+INFILE		=	utils/
+OUTFILE		=	testfiles/out
+CMD1		=	testfiles/testprogram
+CMD2		=	wc -l
 
 all:		$(NAME)
 $(NAME):	$(OBJS)
@@ -42,15 +48,12 @@ fclean: clean
 	rm -f $(NAME)
 
 run: all
-	./$(NAME) testfiles/in "ls -l" "wc -l" testfiles/out
+	./$(NAME) $(INFILE) "$(CMD1)" "$(CMD2)" $(OUTFILE)
 
-drun: all
-	lldb $(NAME) -- testfiles/in "ls -l" "wc -l" testfiles/out
+compare:
+	< $(INFILE) $(CMD1) | $(CMD2) > $(OUTFILE)
 
 re: fclean all
 
 phony:
 	all clean fclean re dtest test
-
-
-	
