@@ -29,4 +29,4 @@ Return value should be the same as the exit code of the second command
 ### Disclaimer
 
 The entire project is written in accordance with the 42 Network Norm. 
-The norm puts readability above everything and can therefore sometimes be limiting in options for writing the most optimal code.
+The norm puts readability above everything and can therefore sometimes be limiting in terms of writing the most optimal code.
