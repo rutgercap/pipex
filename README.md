@@ -8,7 +8,7 @@ Pipex is a simple c program that mimics the functionality of a shell command tha
 ## Project goals
 
 The project is part of the [Codam](https://www.codam.nl/studying-at-codam) curriculum. The main learning goals are:
-- Introduction to forking in c processes
+- Introduction to forking and piping within c programs
 - Buildup for future project of rebuilding bash in C
 
 ## Usage
